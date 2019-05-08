@@ -30,6 +30,15 @@ src
 - [ ] Complete getItemMetaTemplates method
 - [ ] Complete getItemTemplates method
 - [ ] Complete getMobDrops method
+- [ ] Ampersand color code support (all methods and lists)
+  - replace all & with §
+- [ ] check if text is only a variable OR contains variable(s)
+- [ ] non-existent variable casts should return NullException, but plain text.
+  - if string-list, create a list with only the defined string.
+- [ ] if string-list is defined in a single-string line, join entire list with |.
+- [ ] if string is defined in numerical or boolean input, return 0 or false.
+- [ ] if number is defined in boolean input, return true (1) or false (0)
+- [ ] if boolean is defined in numerical input, return 1 (true) or 0 (false)
 
 ### Lists (subject to change)
 
@@ -41,6 +50,18 @@ src
 - HashMap<String, ItemStack> ItemTemplates
 - HashMap<String, MobDrop> MobDrops
 
+### List load order
+
+- Numbers
+- Booleans
+- Strings
+- StringLists
+- ItemMetaTemplates
+- ItemTemplates
+- MobDrops (itemstack, experience)
+
 ### Possible Future Features
 
+- Mob drop parameters
 - Custom block drops
+- Block drop parameters
