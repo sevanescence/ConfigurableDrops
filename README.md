@@ -65,3 +65,12 @@ src
 - Mob drop parameters
 - Custom block drops
 - Block drop parameters
+
+### Variable casting
+
+###### Note: all Variable casts will ignore case.
+
+- (number)
+- (boolean)
+- (string)
+- (string-list)
