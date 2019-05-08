@@ -28,4 +28,19 @@ src
 - [ ] Complete Variables formatting
 - [ ] Complete getItemMetaTemplates method
 - [ ] Complete getItemTemplates method
-- [test] haha
+- [ ] Complete getMobDrops method
+
+### Lists (subject to change)
+
+- HashMap<String, Double> Numbers
+- HashMap<String, Boolean> Booleans
+- HashMap<String, String> Strings
+- HashMap<String, ArrayList<String>> StringLists
+- HashMap<String, ItemMeta> ItemMetaTemplates
+- HashMap<String, ItemStack> ItemTemplates
+  
+- HashMap<String, MobDrop> MobDrops
+
+### Possible Future Features
+
+- Custom block drops
