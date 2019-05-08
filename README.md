@@ -20,11 +20,11 @@ src
 ### To Do List
 
 - [ ] Start the project
-- [ ] Complete get[datatype]Constants methods
+- [ ] Complete get[datatype]Variables methods
   - [ ] Numbers
   - [ ] Booleans
   - [ ] Strings
   - [ ] String-Lists
-- [ ] Complete Constants formatting
+- [ ] Complete Variables formatting
 - [ ] Complete getItemMetaTemplates method
 - [ ] Complete getItemTemplates method
