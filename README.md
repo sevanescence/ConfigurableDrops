@@ -10,6 +10,7 @@ src
 - java
   - io.github.makotomiyamoto.ConfigurableDrops
     - ConfigurableDrops.java
+    - MobDrop.java (Object)
     - EntityDeathEvent.java
     - EntityKilledEvent.java
 - resources
@@ -38,7 +39,6 @@ src
 - HashMap<String, ArrayList<String>> StringLists
 - HashMap<String, ItemMeta> ItemMetaTemplates
 - HashMap<String, ItemStack> ItemTemplates
-  
 - HashMap<String, MobDrop> MobDrops
 
 ### Possible Future Features
