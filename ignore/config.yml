@@ -1,0 +1,22 @@
+enabled: true
+debug-mode: true
+
+Variables:
+  Numbers:
+    example-number: 18
+  Booleans:
+    example-boolean: true
+  Strings:
+    example-string: "Makoto"
+    colorcode: "&c"
+  String-Lists:
+    example-list:
+      - "%(string)colorcode%Hey there! My name is"
+      - "%(string)colorcode%%(string)example-string%!"
+      - "&6This is a text list :D"
+
+ItemMetaTemplates:
+  example-ItemMeta:
+    display-name: "%(string)colorcode%I'm a custom name :D"
+    display-lore: (string-list)example-list
+    
