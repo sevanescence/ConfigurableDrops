@@ -21,6 +21,10 @@ src
 
 - [ ] Start the project
 - [ ] Complete get[datatype]Constants methods
+  - [ ] Numbers
+  - [ ] Booleans
+  - [ ] Strings
+  - [ ] String-Lists
 - [ ] Complete Constants formatting
 - [ ] Complete getItemMetaTemplates method
 - [ ] Complete getItemTemplates method
