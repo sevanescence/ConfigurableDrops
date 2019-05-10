@@ -68,9 +68,10 @@ src
 
 ### Variable casting
 
-###### Note: all Variable casts will ignore case.
+###### All variables are called in %placeholders%
 
-- (number)
-- (boolean)
-- (string)
-- (string-list)
+variables:
+  strings:
+    example-string: "Hello!"
+    
+textToPrint: %example-string% --> will print "Hello!"
