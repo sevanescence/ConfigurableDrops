@@ -20,13 +20,13 @@ src
   
 ### To Do List
 
-- [ ] Start the project
-- [ ] Complete get[datatype]Variables methods
-  - [ ] Numbers
-  - [ ] Booleans
-  - [ ] Strings
-  - [ ] String-Lists
-- [ ] Complete Variables formatting
+- [x] Start the project
+- [x] Complete get[datatype]Variables methods
+  - [x] Numbers
+  - [x] Booleans
+  - [x] Strings
+  - [x] String-Lists
+- [x] Complete Variables formatting
 - [ ] Complete getItemMetaTemplates method
 - [ ] Complete getItemTemplates method
 - [ ] Complete getMobDrops method
