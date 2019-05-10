@@ -1,17 +1,31 @@
 package io.github.makotomiyamoto.ConfigurableDrops;
 
+import org.apache.commons.lang.StringUtils;
+import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class ConfigurableDrops extends JavaPlugin {
+
+    private String num = "(number)";
+    private String bool = "(boolean)";
+    private String str = "(string)";
+    private String list = "(string-list)";
 
     private HashMap<String, Number> Numbers;
     private HashMap<String, Boolean> Booleans;
     private HashMap<String, String> Strings;
     private HashMap<String, ArrayList<String>> StringLists;
+
+    private HashMap<String, ItemMeta> ItemMetaTemplates;
+
+    private HashMap<String, ItemStack> ItemTemplates;
 
     @Override
     public void onEnable() {
@@ -19,12 +33,11 @@ public class ConfigurableDrops extends JavaPlugin {
         this.saveDefaultConfig();
 
         Numbers = getNumbers();
-
         Booleans = getBooleans();
-
         Strings = getStrings();
-
         StringLists = getStringLists();
+
+
 
     }
 
@@ -211,6 +224,119 @@ public class ConfigurableDrops extends JavaPlugin {
         }
 
         return listHashMap;
+
+    }
+
+    private HashMap<String, ItemMeta> getItemMetaTemplates() {
+
+        ConfigurationSection itemMetaTemplates = this.getConfig().getConfigurationSection("ItemMetaTemplates");
+
+        if (itemMetaTemplates == null) {
+
+            debug("ItemMetaTemplates is undefined.");
+
+            return new HashMap<String, ItemMeta>();
+
+        }
+
+        debug("ItemMetaTemplates exists!");
+
+        HashMap<String, ItemMeta> itemMetaHashMap = new HashMap<String, ItemMeta>();
+
+        debug("scanning ItemMetaTemplates...");
+
+        for (String key : itemMetaTemplates.getKeys(false)) {
+
+            debug("Checking item " + itemMetaTemplates.getCurrentPath() + "." + key);
+
+            if (itemMetaTemplates.get(key) == null) {
+
+                error(itemMetaTemplates.getCurrentPath() + "." + key + " is undefined.");
+
+                continue;
+
+            }
+
+            ConfigurationSection metaKey = itemMetaTemplates.getConfigurationSection(key);
+
+            ItemMeta itemMeta = new ItemStack(Material.AIR).getItemMeta();
+
+            if (metaKey == null || itemMeta == null) {
+                continue;
+            }
+
+            if (metaKey.getString("display-name") != null) {
+
+                String string = metaKey.getString("display-name");
+
+                if (StringUtils.substringsBetween(string, "%", "%") != null &&
+                        StringUtils.substringsBetween(string, "%", "%").length > 0) {
+
+                    String[] tempList = StringUtils.substringsBetween(string, "%", "%");
+
+                    ArrayList<String> variables = new ArrayList<String>(Arrays.asList(tempList));
+
+                    for (String loopIndex : variables) {
+
+                        String temp = "%" + loopIndex + "%";
+
+                        if (loopIndex.contains(num)) {
+
+                            string = string.replaceFirst(temp, Numbers.get(loopIndex).toString());
+
+                            continue;
+
+                        }
+
+                        if (loopIndex.contains(bool)) {
+
+                            string = string.replaceFirst(temp, Booleans.get(loopIndex).toString());
+
+                            continue;
+
+                        }
+
+                        if (loopIndex.contains(str)) {
+
+                            string = string.replaceFirst(temp, Strings.get(loopIndex));
+
+                        }
+
+                    }
+
+                }
+
+                if (string != null && string.contains("&")) {
+
+                    string = string.replaceAll("&", "§");
+
+                }
+
+                debug(key + " has been named " + string);
+
+                itemMeta.setDisplayName(string);
+
+            }
+
+            if (metaKey.get("display-lore") != null) {
+
+                // thus is where I left off
+
+                // refer to the Test, where the size of a list
+                // which is really only a single string returns
+                // 0, and a defined list with 1 index returns 1
+
+                // make sure string-lists are unable to be referenced
+                // in anything but a list, and will only return
+                // the raw text if referenced in a text.
+
+            }
+
+            itemMetaHashMap.put("(ItemMetaTemplate)" + key, itemMeta);
+
+        }
+
+        return itemMetaHashMap;
 
     }
 

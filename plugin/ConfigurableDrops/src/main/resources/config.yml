@@ -9,7 +9,12 @@ variables:
     example-boolean: true
   strings:
     example-string: "&cHey there! :D"
+    name: "&cMakoto's Staff"
   string-lists:
     example-string-list:
       - "&cMy name is Makoto! <3"
       - "&c>:3"
+
+ItemMetaTemplates:
+  example-item-meta:
+    display-name: "%(string)name%"
