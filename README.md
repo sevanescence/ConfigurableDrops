@@ -32,7 +32,7 @@ src
 - [ ] Complete getMobDrops method
 - [ ] Ampersand color code support (all methods and lists)
   - replace all & with §
-- [ ] check if text is only a variable OR contains variable(s)
+- [ ] make sure all methods after variables check for a variable or set of variables.
 - [ ] non-existent variable casts should return NullException, but plain text.
   - if string-list, create a list with only the defined string.
 - [ ] if string-list is defined in a single-string line, join entire list with |.
