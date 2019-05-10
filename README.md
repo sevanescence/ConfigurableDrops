@@ -70,8 +70,10 @@ src
 
 ###### All variables are called in %placeholders%
 
-variables:
-  strings:
-    example-string: "Hello!"
+###### variables:
+
+  ###### strings:
+  
+    ###### example-string: "Hello!"
     
-textToPrint: %example-string% --> will print "Hello!"
+###### textToPrint: %example-string% --> will print "Hello!"
