@@ -1,0 +1,15 @@
+enabled: true
+
+debug-mode: true
+
+variables:
+  numbers:
+    example-number: 18
+  booleans:
+    example-boolean: true
+  strings:
+    example-string: "&cHey there! :D"
+  string-lists:
+    example-string-list:
+      - "&cMy name is Makoto! <3"
+      - "&c>:3"
