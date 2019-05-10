@@ -70,10 +70,11 @@ src
 
 ###### All variables are called in %placeholders%
 
-###### variables:
-
-  ###### strings:
-  
-    ###### example-string: "Hello!"
+  ###### config:
+    variables:
+      strings:
+        example-string: Hello!
+        
+    toPrint: %example-string%
     
-###### textToPrint: %example-string% --> will print "Hello!"
+    output: "Hello!"
