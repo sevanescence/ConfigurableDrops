@@ -75,6 +75,6 @@ src
       strings:
         example-string: Hello!
         
-    toPrint: %example-string%
+    toPrint: %(string)example-string%
     
     output: "Hello!"
